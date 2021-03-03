@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "rtrapp"
+  "defaultProject": "rtrapp",
+  "cli": {
+    "analytics": false
+  }
 }
