@@ -13,13 +13,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { FoodComponent } from './food/food.component';
+import { BurgersComponent } from './food/burgers/burgers.component';
+import { PizzaComponent } from './food/pizza/pizza.component';
+import { SidesComponent } from './food/sides/sides.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CartComponent,
-    MainNavComponent
+    MainNavComponent,
+    FoodComponent,
+    BurgersComponent,
+    PizzaComponent,
+    SidesComponent
   ],
   imports: [
     BrowserModule,
