@@ -16,4 +16,6 @@ h2 {
 
 .container {
   width: flex;
+  display: grid;
+  grid-template: 1fr auto;
 }

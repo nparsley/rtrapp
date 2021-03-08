@@ -10,10 +10,13 @@ h1 {
 }
 
 h2 {
+  float: left;
   color: firebrick;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .container {
   width: flex;
+  display: grid;
+  grid-template: 1fr auto;
 }
