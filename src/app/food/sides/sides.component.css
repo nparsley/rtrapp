@@ -1,0 +1,19 @@
+h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: firebrick;
+  font-style: italic;
+  float: left;
+}
+
+.list-group-flush {
+  display: inline-table;
+}
+
+h2 {
+  color: firebrick;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: flex;
+}

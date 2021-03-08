@@ -9,3 +9,11 @@ h1 {
   display: inline-table;
 }
 
+h2 {
+  color: firebrick;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: flex;
+}
