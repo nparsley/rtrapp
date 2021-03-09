@@ -10,25 +10,25 @@ export class SidesComponent implements OnInit {
   sweetPotato = {
     name: 'sweet potato fries',
     description: 'baked and served with spicy ketchup',
-    price: '$5.00'
+    price: 5
   }
 
   friedOnion = {
     name: 'fried onion rings',
     description: 'deep-fried with a side of ranch',
-    price: '$6.00'
+    price: 6
   }
 
   salad = {
     name: 'salad',
     description: 'greens, tomatoes, croutons, and cucumbers',
-    price: '$3.00'
+    price: 3
   }
 
   wings = {
     name: 'wings',
     description: 'served with celery and carrots',
-    price: '$7.00'
+    price: 7
   }
 
   constructor() { }

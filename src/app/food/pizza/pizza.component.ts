@@ -12,25 +12,25 @@ export class PizzaComponent implements OnInit {
   margheritaPizza = {
     name: 'margherita',
     description: 'tomatoes, mozzarella, and fresh basil',
-    price: '$12.00'
+    price: 13
   }
 
   pepperoniPizza = {
     name: 'pepperoni',
     description: 'pepperoni, mozzarella, and olives',
-    price: '$17.00'
+    price: 17
   }
 
   cheesePizza = {
     name: 'cheese',
     description: 'mozzarella, gorgonzola, fontina, and parmigiano',
-    price: '$12.00'
+    price: 12
   }
 
   veggiePizza = {
     name: 'veggie',
     description: 'mushrooms, green peppers, tomatoes, black olives, and onions',
-    price: '$14.00'
+    price: 11
   }
 
 
