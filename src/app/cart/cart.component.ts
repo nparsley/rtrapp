@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddToCartService } from '../food/add-to-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   msg: string;
 
-  margheritaPizza = {
+
+/*   margheritaPizza = {
     name: 'margherita',
     description: 'tomatoes, mozzarella, and fresh basil',
     price: 13
@@ -30,16 +32,22 @@ export class CartComponent implements OnInit {
     name: 'veggie',
     description: 'mushrooms, green peppers, tomatoes, black olives, and onions',
     price: 11
-  }
+  } */
 
   clickEvent() {
     this.msg = 'helllllo';
-    // this.msg = this.veggiePizza.name;
+
 
     return this.msg;
+
   }
 
-  constructor() { }
+  constructor(private addtocart: AddToCartService) { }
+
+  // addToCart(/* product */) {
+  //   this.addtocart.addToCart(/* product */);
+  //   window.alert('Your product has been added to the cart.');
+  // }
 
   ngOnInit(): void {
   }
