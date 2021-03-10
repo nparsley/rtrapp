@@ -5,7 +5,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar routerLink="/">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/pizza" href="/pizza">Pizza</a> <!-- routerlink -->
+      <a mat-list-item routerLink="/pizza" href="/pizza">Pizza</a>
       <a mat-list-item routerLink="/burgers" href="/burgers">Burgers</a>
       <a mat-list-item routerLink="/sides" href="/sides">Sides</a>
     </mat-nav-list>
@@ -22,8 +22,6 @@
       </button>
       <span class="spacer">rtrapp</span>
       <span></span>
-<!--       <a href="/pizza">Pizza</a>
-      <a href="/burgers">Burgers</a> -->
       <a routerLink="/cart" href="cart" class="material-icons">shopping_cart</a>
     </mat-toolbar>
     <ng-content></ng-content>

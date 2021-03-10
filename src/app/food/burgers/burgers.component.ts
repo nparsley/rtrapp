@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddToCartService } from '../add-to-cart.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-burgers',
@@ -7,38 +7,38 @@ import { AddToCartService } from '../add-to-cart.service';
   styleUrls: ['./burgers.component.css']
 })
 export class BurgersComponent implements OnInit {
-  burgerType = [];
-  cartBurger = [];
+  burgers = [
+    {
+      name: 'bbq bacon',
+      description: 'bacon, american cheese, onions, pickles, and BBQ sauce',
+      price: 13
+    },
 
-  bbqBacon = {
-    name: 'bbq bacon',
-    description: 'bacon, american cheese, onions, pickles, and BBQ sauce',
-    price: 13
-  }
+    {
+      name: 'swiss avocado',
+      description: 'swiss cheese, avocado slices, and tomatoes',
+      price: 11
+    },
 
-  swissAvocado = {
-    name: 'swiss avocado',
-    description: 'swiss cheese, avocado slices, and tomatoes',
-    price: 11
-  }
+    {
+      name: 'blue cheese',
+      description: 'blue cheese, fried onion strings, jalapenos and spicy ketchup',
+      price: 12
+    },
 
-  blueCheese = {
-    name: 'blue cheese',
-    description: 'blue cheese, fried onion strings, jalapenos and spicy ketchup',
-    price: 12
-  }
+    {
+      name: 'cheese burger',
+      description: 'american cheese, lettuce, tomatoes, onions, and pickles',
+      price: 10
+    }
+  ];
 
-  cheese = {
-    name: 'cheese burger',
-    description: 'american cheese, lettuce, tomatoes, onions, and pickles',
-    price: 10
-  }
 
-  constructor(private addtocart: AddToCartService) { }
+  constructor(private cartservice: CartService) { }
 
-  addToCart(/* product */) {
-    this.addtocart.addToCart(/* product */);
-    window.alert('Your product has been added to the cart.');
+  addToCart() {
+    this.cartservice.addToCart();
+    window.alert('Your burger has been added to the cart.');
   }
 
   ngOnInit(): void {

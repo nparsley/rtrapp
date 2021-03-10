@@ -1,8 +1,5 @@
-<!-- <p>burgers works!</p> -->
-
-<div class="container">
+<!-- <div class="container">
   <h2>Burgers</h2>
-  <!-- <p>Add name, description, pricing</p> -->
   <table class="table table-hover align-items-stretch">
     <thead>
       <tr>
@@ -38,4 +35,22 @@
       </tr>
     </tbody>
   </table>
+</div>
+ -->
+<h2>Burgers</h2>
+
+<div *ngFor="let burger of burgers">
+
+  <h3>
+    <a [title]="burger.name + ' details'">
+    {{ burger.name }}
+  </a>
+  </h3>
+
+  <p *ngIf="burger.description">
+    - {{ burger.description }}
+  </p>
+
+  <button (click)="addToCart()">Add To Cart</button>
+
 </div>

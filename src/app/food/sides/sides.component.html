@@ -1,8 +1,5 @@
-<!-- <p>sides works!</p> -->
-
-<div class="container">
+<!-- <div class="container">
   <h2>Sides</h2>
-  <!-- <p>Add name, description, pricing</p> -->
   <table class="table table-hover align-items-stretch">
     <thead>
       <tr>
@@ -19,6 +16,7 @@
         <button (click)="addToCart()">+</button>
       </tr>
       <tr>
+        <div></div>
         <td>{{ friedOnion.name }}</td>
         <td>{{ friedOnion.description }}</td>
         <td>{{ friedOnion.price }}</td>
@@ -31,11 +29,29 @@
         <button (click)="addToCart()">+</button>
       </tr>
       <tr>
-        <td>{{ salad.name }}</td>
-        <td>{{ salad.description }}</td>
-        <td>{{ salad.price }}</td>
+        <td>{{ wings.name }}</td>
+        <td>{{ wings.description }}</td>
+        <td>{{ wings.price }}</td>
         <button (click)="addToCart()">+</button>
       </tr>
     </tbody>
   </table>
+</div> -->
+
+<h2>Sides</h2>
+
+<div *ngFor="let side of sides">
+
+  <h3>
+    <a [title]="side.name + ' details'">
+    {{ side.name }}
+  </a>
+  </h3>
+
+  <p *ngIf="side.description">
+    - {{ side.description }}
+  </p>
+
+  <button (click)="addToCart()">Add To Cart</button>
+
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddToCartService } from '../add-to-cart.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-sides',
@@ -8,35 +8,42 @@ import { AddToCartService } from '../add-to-cart.service';
 })
 export class SidesComponent implements OnInit {
 
-  sweetPotato = {
-    name: 'sweet potato fries',
-    description: 'baked and served with spicy ketchup',
-    price: 5
-  }
 
-  friedOnion = {
-    name: 'fried onion rings',
-    description: 'deep-fried with a side of ranch',
-    price: 6
-  }
+  sides = [
+    {
+      // id: 1,
+      name: 'sweet potato fries',
+      description: 'baked and served with spicy ketchup',
+      price: 5
+    },
 
-  salad = {
-    name: 'salad',
-    description: 'greens, tomatoes, croutons, and cucumbers',
-    price: 3
-  }
+    {
+      // id: 2,
+      name: 'fried onion rings',
+      description: 'deep-fried with a side of ranch',
+      price: 6
+    },
 
-  wings = {
-    name: 'wings',
-    description: 'served with celery and carrots',
-    price: 7
-  }
+    {
+      // id: 3,
+      name: 'salad',
+      description: 'greens, tomatoes, croutons, and cucumbers',
+      price: 3
+    },
 
-  constructor(private addtocart: AddToCartService) { }
+    {
+      // id: 4,
+      name: 'wings',
+      description: 'served with celery and carrots',
+      price: 7
+    }
+  ];
 
-  addToCart(/* product */) {
-    this.addtocart.addToCart(/* product */);
-    window.alert('Your product has been added to the cart.');
+  constructor(private cartservice: CartService) { }
+
+  addToCart() {
+    this.cartservice.addToCart();
+    window.alert('Your side has been added to the cart.');
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AddToCartService } from '../add-to-cart.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-pizza',
@@ -7,41 +7,40 @@ import { AddToCartService } from '../add-to-cart.service';
   styleUrls: ['./pizza.component.css']
 })
 export class PizzaComponent implements OnInit {
-  pizzaType = [];
-  cartPizza = [];
+
+  pizzas = [
+    {
+      name: 'margherita',
+      description: 'tomatoes, mozzarella, and fresh basil',
+      price: 13
+    },
+
+    {
+      name: 'pepperoni',
+      description: 'pepperoni, mozzarella, and olives',
+      price: 17
+    },
+
+    {
+      name: 'cheese',
+      description: 'mozzarella, gorgonzola, fontina, and parmigiano',
+      price: 12
+    },
+
+    {
+      name: 'veggie',
+      description: 'mushrooms, green peppers, tomatoes, black olives, and onions',
+      price: 11
+    }
+  ];
 
 
-  margheritaPizza = {
-    name: 'margherita',
-    description: 'tomatoes, mozzarella, and fresh basil',
-    price: 13
-  }
 
-  pepperoniPizza = {
-    name: 'pepperoni',
-    description: 'pepperoni, mozzarella, and olives',
-    price: 17
-  }
+  constructor(private cartservice: CartService) { }
 
-  cheesePizza = {
-    name: 'cheese',
-    description: 'mozzarella, gorgonzola, fontina, and parmigiano',
-    price: 12
-  }
-
-  veggiePizza = {
-    name: 'veggie',
-    description: 'mushrooms, green peppers, tomatoes, black olives, and onions',
-    price: 11
-  }
-
-
-
-  constructor(private addtocart: AddToCartService) { }
-
-  addToCart(/* product */) {
-    this.addtocart.addToCart(/* product */);
-    window.alert('Your product has been added to the cart.');
+  addToCart() {
+    this.cartservice.addToCart();
+    window.alert('Your pizza has been added to the cart.');
   }
 
   ngOnInit(): void {
