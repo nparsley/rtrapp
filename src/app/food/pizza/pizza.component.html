@@ -1,42 +1,3 @@
-<!-- <div class="container">
-  <h2>Pizza</h2>
-  <table class="table table-hover align-items-stretch">
-    <thead>
-      <tr>
-        <th>Pizza</th>
-        <th>Description</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ margheritaPizza.name }}</td>
-        <td>{{ margheritaPizza.description }}</td>
-        <td>{{ margheritaPizza.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-      <tr>
-        <td>{{ pepperoniPizza.name }}</td>
-        <td>{{ pepperoniPizza.description }}</td>
-        <td>{{ pepperoniPizza.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-      <tr>
-        <td>{{ cheesePizza.name }}</td>
-        <td>{{ cheesePizza.description }}</td>
-        <td>{{ cheesePizza.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-      <tr>
-        <td>{{ veggiePizza.name }}</td>
-        <td>{{ veggiePizza.description }}</td>
-        <td>{{ veggiePizza.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
 <h2>Pizza</h2>
 
 <div *ngFor="let pizza of pizzas">
@@ -46,12 +7,15 @@
     {{ pizza.name }}
   </a>
   </h3>
+  <h4>
+    {{ pizza.price | currency }}
+  </h4>
 
   <p *ngIf="pizza.description">
     - {{ pizza.description }}
   </p>
 
-  <button (click)="addToCart()">Add To Cart</button>
+  <button (click)="addToCart(pizza)">Add To Cart</button>
 
 </div>
 

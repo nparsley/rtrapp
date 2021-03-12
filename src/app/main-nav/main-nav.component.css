@@ -26,3 +26,16 @@ mat-toolbar a {
   text-decoration: none;
 }
 
+.btn.btn-warning {
+  justify-self: baseline;
+  justify-content: unset;
+  display: flex;
+  align-items: center;
+}
+
+/* .aligned-with-icon{
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 5px;
+} */
+

@@ -1,6 +1,9 @@
+<h3>Cart</h3>
 
-<button (click)="clickEvent()" class="btn btn-warning">CHECKOUT</button>
+<div *ngFor="let item of items" class="cart-item">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency }}</span>
 
-<h2>{{ msg }}</h2>
+</div>
 
 

@@ -6,11 +6,12 @@ import { SidesComponent } from './sides/sides.component';
 
 
 
+
 @NgModule({
   declarations: [
     BurgersComponent,
     PizzaComponent,
-    SidesComponent
+    SidesComponent,
   ],
   imports: [
     CommonModule

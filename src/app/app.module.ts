@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FoodModule } from './food/food.module';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -27,6 +28,7 @@ import { FoodModule } from './food/food.module';
     AppComponent,
     HomeComponent,
     MainNavComponent,
+    CartComponent
 
   ],
   imports: [

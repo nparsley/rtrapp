@@ -1,43 +1,3 @@
-<!-- <div class="container">
-  <h2>Sides</h2>
-  <table class="table table-hover align-items-stretch">
-    <thead>
-      <tr>
-        <th>Sides</th>
-        <th>Description</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ sweetPotato.name }}</td>
-        <td>{{ sweetPotato.description }}</td>
-        <td>{{ sweetPotato.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-      <tr>
-        <div></div>
-        <td>{{ friedOnion.name }}</td>
-        <td>{{ friedOnion.description }}</td>
-        <td>{{ friedOnion.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-      <tr>
-        <td>{{ salad.name }}</td>
-        <td>{{ salad.description }}</td>
-        <td>{{ salad.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-      <tr>
-        <td>{{ wings.name }}</td>
-        <td>{{ wings.description }}</td>
-        <td>{{ wings.price }}</td>
-        <button (click)="addToCart()">+</button>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
 <h2>Sides</h2>
 
 <div *ngFor="let side of sides">
@@ -47,11 +7,14 @@
     {{ side.name }}
   </a>
   </h3>
+  <h4>
+    {{ side.price | currency }}
+  </h4>
 
   <p *ngIf="side.description">
     - {{ side.description }}
   </p>
 
-  <button (click)="addToCart()">Add To Cart</button>
+  <button (click)="addToCart(side)">Add To Cart</button>
 
 </div>
