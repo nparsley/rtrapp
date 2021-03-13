@@ -7,7 +7,9 @@ import { SidesComponent } from './food/sides/sides.component';
 
 const routes: Routes = [
   { path: 'pizza', component: PizzaComponent},
+  { path: 'pizza/:pizzaId', component: PizzaComponent },
   { path: 'burgers', component: BurgersComponent},
+  { path: 'burgers/:burgerId', component: BurgersComponent },
   { path: 'sides', component: SidesComponent},
   { path: 'sides/:sideId', component: SidesComponent },
   { path: 'cart', component: CartComponent},

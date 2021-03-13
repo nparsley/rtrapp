@@ -42,8 +42,8 @@ export class SidesComponent implements OnInit {
 
   constructor(private cartservice: CartService, private route: ActivatedRoute) { }
 
-  addToCart(side) {
-    this.cartservice.addToCart(side);
+  addSideToCart(side) {
+    this.cartservice.addSideToCart(side);
     window.alert('Your side has been added to the cart.');
   }
 

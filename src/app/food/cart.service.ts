@@ -8,8 +8,16 @@ export class CartService {
   items = [];
 
 
-  addToCart(sides) {
+  addSideToCart(sides) {
     this.items.push(sides);
+  }
+
+  addBurgerToCart(burgers) {
+    this.items.push(burgers);
+  }
+
+  addPizzaToCart(pizzas) {
+    this.items.push(pizzas);
   }
 
   getItems() {
