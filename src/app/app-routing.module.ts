@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'pizza', component: PizzaComponent},
   { path: 'burgers', component: BurgersComponent},
   { path: 'sides', component: SidesComponent},
+  { path: 'sides/:sideId', component: SidesComponent },
   { path: 'cart', component: CartComponent},
 ];
 

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule, routingComponenets } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -21,14 +21,12 @@ import { CartComponent } from './cart/cart.component';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     MainNavComponent,
     CartComponent
+
 
   ],
   imports: [

@@ -6,12 +6,12 @@ import { SidesComponent } from './sides/sides.component';
 
 
 
-
 @NgModule({
   declarations: [
     BurgersComponent,
     PizzaComponent,
     SidesComponent,
+
   ],
   imports: [
     CommonModule
@@ -19,7 +19,7 @@ import { SidesComponent } from './sides/sides.component';
   exports: [
     BurgersComponent,
     PizzaComponent,
-    SidesComponent
+    SidesComponent,
   ]
 })
 export class FoodModule { }

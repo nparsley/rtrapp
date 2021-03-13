@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -36,7 +37,7 @@ export class PizzaComponent implements OnInit {
 
 
 
-  constructor(private cartservice: CartService) { }
+  constructor(private cartservice: CartService, private route: ActivatedRoute) { }
 
   addToCart() {
     this.cartservice.addToCart();
