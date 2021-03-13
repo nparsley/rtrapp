@@ -15,3 +15,7 @@ h3 {
   border-radius: 2px;
   background-color: #EEEEEE;
 }
+
+input {
+  display: flex;
+}

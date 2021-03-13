@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FoodModule } from './food/food.module';
 import { CartComponent } from './cart/cart.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -41,7 +42,8 @@ import { CartComponent } from './cart/cart.component';
     MatListModule,
     HttpClientModule,
     CommonModule,
-    FoodModule
+    FoodModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
