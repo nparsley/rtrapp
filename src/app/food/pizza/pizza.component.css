@@ -19,3 +19,18 @@ h2 {
   display: grid;
   grid-template: 1fr auto;
 }
+
+h3, a {
+  color: rgb(233, 156, 40);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: inherit;
+  transition: all .5s;
+}
+
+.btn-danger.btn-outline {
+  color: #d9534f;
+}
