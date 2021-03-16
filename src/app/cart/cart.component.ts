@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
     name: '',
     phone: ''
   });
+  
 
 
   constructor(

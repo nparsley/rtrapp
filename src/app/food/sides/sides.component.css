@@ -34,3 +34,7 @@ h3, a {
 .btn-danger.btn-outline {
   color: #d9534f;
 }
+
+.btn-danger.btn-outline:hover {
+  color: rgb(243, 153, 35);
+}

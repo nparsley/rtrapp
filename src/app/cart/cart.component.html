@@ -10,15 +10,15 @@
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name">
+    <input id="name" type="text" formControlName="name" required>
   </div>
 
   <div>
     <label for="phone">
       Phone Number
     </label>
-    <input id="phone" type="text" formControlName="phone">
+    <input id="phone" type="text" formControlName="phone" required>
   </div>
   <br>
-  <button class="btn btn-success btn-md" type="submit" disabled>Purchase</button>
+  <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
 </form>
