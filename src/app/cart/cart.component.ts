@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { min } from 'rxjs/operators';
 import { CartService } from '../food/cart.service';
 
 
@@ -15,7 +16,10 @@ export class CartComponent implements OnInit {
     name: '',
     phone: ''
   });
-  
+  subTotal; //snapshot of current items in cart + price
+  Tax; // multiply % based on subtotal
+  Total; // add subtotal + tax
+
 
 
   constructor(

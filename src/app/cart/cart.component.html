@@ -5,19 +5,30 @@
   <span>{{ item.price | currency }}</span>
 </div>
 
+<div>
+  SubTotal:
+  <input type="number" [formControl]="subTotal">
+  <!-- <br> -->
+  Tax:
+  <input type="number" [formControl]="subTotal">
+  <!-- <br> -->
+  Total:
+  <input type="number" [formControl]="subTotal">
+</div>
+<br>
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name" required>
+    <input pattern="[a-zA-Z ]*" minlength="2" id="name" type="text" formControlName="name" required>
   </div>
 
   <div>
     <label for="phone">
       Phone Number
     </label>
-    <input id="phone" type="text" formControlName="phone" required>
+    <input minlength="10" maxlength="10" id="phone" type="text" formControlName="phone" required>
   </div>
   <br>
   <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
