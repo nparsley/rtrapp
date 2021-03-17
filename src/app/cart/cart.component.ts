@@ -16,9 +16,7 @@ export class CartComponent implements OnInit {
     name: '',
     phone: ''
   });
-  subTotal; //snapshot of current items in cart + price
-  Tax; // multiply % based on subtotal
-  Total; // add subtotal + tax
+
 
 
 

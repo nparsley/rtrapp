@@ -12,6 +12,7 @@ h1 {
 h2 {
   color: firebrick;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 20px;
 }
 
 .container {
@@ -37,4 +38,8 @@ h3, a {
 
 .btn-danger.btn-outline:hover {
   color: rgb(243, 153, 35);
+}
+
+.sides {
+  margin-left: 20px;
 }
