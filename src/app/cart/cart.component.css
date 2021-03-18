@@ -32,24 +32,17 @@ input {
 
 }
 
+.btn-outline {
+  background-color: transparent;
+  color: inherit;
+  transition: all .5s;
+}
 
-/*
-<table class="table" ng-show="cartData.length > 0">
-<thead>
-  <tr>
-    <th>Item</th>
-    <th>Price</th>
-    <th colspan="2">Quantity</th>
-  </tr>
-</thead>
-<tbody>
-  <tr ng-repeat="item in cartData">
-    <td>{{item.name}}</td>
-    <td>{{item.price | currency}}</td>
-    <td>{{item.quantity}}</td>
-    <td>
-      <button ng-click="remove($index)" class="btn btn-default">Remove</button>
-    </td>
-  </tr>
-</tbody>
-</table> */
+.btn-warning.btn-outline {
+  color: #d9534f;
+}
+
+.btn-warning.btn-outline:hover {
+  color: rgb(243, 153, 35);
+}
+

@@ -12,9 +12,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of items">
-        <!-- <th scope="row"></th> -->
         <td>{{ item.name }}</td>
-        <td>insert amount here</td>
+        <td>
+          <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button>
+           {{ 'item quantity goes here' }}
+          <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button>
+        </td>
         <td>{{ item.price | currency}}</td>
         <td><button class="btn btn-danger btn-sm">Remove</button></td>
       </tr>
