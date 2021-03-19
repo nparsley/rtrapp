@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
     name: '',
     phone: ''
   });
+  deleteItems;
 
 
 
@@ -30,6 +31,11 @@ export class CartComponent implements OnInit {
     this.items = this.cartservice.clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
+  }
+
+  deleteItem() {
+    this.deleteItems = this.cartservice.removeCartItem(this.items);
+    console.warn('delete');
   }
 
 

@@ -24,6 +24,12 @@ export class CartService {
     return this.items;
   }
 
+  // remove all cart items (need to reference i = index for this.items[])
+  removeCartItem(item) {
+    this.items.splice(item);
+    console.log('item was removed');
+  }
+
   clearCart() {
     this.items = [];
     return this.items;
