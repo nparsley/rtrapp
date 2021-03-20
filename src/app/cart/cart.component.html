@@ -19,7 +19,7 @@
           <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button>
         </td>
         <td>{{ item.price | currency}}</td>
-        <td><button (click)="deleteItem()" class="btn btn-danger btn-sm">Remove</button></td>
+        <td><button (click)="removeCartItem(i)" class="btn btn-danger btn-sm">Remove</button></td>
       </tr>
     </tbody>
   </table>

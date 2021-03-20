@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
 
 
+interface MenuItem {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  items = [];
+  items: Array<MenuItem> = [];
+  deleteItems: Array<MenuItem> = [];
 
 
   addSideToCart(sides) {
@@ -25,8 +33,14 @@ export class CartService {
   }
 
   // remove all cart items (need to reference i = index for this.items[])
-  removeCartItem(item) {
+/*   removeCartItem(item) {
     console.log(item)
+    this.items.splice(item.indexOf(item), 1);
+    console.log('item was removed');
+  } */
+
+  removeCartItem(item) {
+    console.log(item);
     this.items.splice(item.indexOf(item), 1);
     console.log('item was removed');
   }
