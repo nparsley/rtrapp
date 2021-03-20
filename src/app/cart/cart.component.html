@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
+      <tr *ngFor="let item of items; let i = index;">
         <td>{{ item.name }}</td>
         <td>
           <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button>
@@ -24,12 +24,6 @@
     </tbody>
   </table>
 </div>
-
-
-<!--   <div *ngFor="let item of items" class="cart-item">
-    <span>{{ item.name }}</span>
-    <span>{{ item.price | currency }}</span>
-  </div> -->
 
 
 <br>
@@ -51,3 +45,7 @@
   <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
 </form>
 
+<!--   <div *ngFor="let item of items" class="cart-item">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+  </div> -->

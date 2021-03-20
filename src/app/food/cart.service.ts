@@ -26,7 +26,8 @@ export class CartService {
 
   // remove all cart items (need to reference i = index for this.items[])
   removeCartItem(item) {
-    this.items.splice(item);
+    console.log(item)
+    this.items.splice(item.indexOf(item), 1);
     console.log('item was removed');
   }
 

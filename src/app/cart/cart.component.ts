@@ -4,6 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { min } from 'rxjs/operators';
 import { CartService } from '../food/cart.service';
 
+/* interface Remove {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+} */
+
 
 @Component({
   selector: 'app-cart',
@@ -17,8 +24,6 @@ export class CartComponent implements OnInit {
     phone: ''
   });
   deleteItems;
-
-
 
 
   constructor(
@@ -36,6 +41,7 @@ export class CartComponent implements OnInit {
   deleteItem() {
     this.deleteItems = this.cartservice.removeCartItem(this.items);
     console.warn('delete');
+
   }
 
 
