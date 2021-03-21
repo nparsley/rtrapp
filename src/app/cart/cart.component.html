@@ -14,16 +14,48 @@
       <tr *ngFor="let item of items; let i = index;">
         <td>{{ item.name }}</td>
         <td>
-          <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button>
-           {{ 'item quantity goes here' }}
-          <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button>
+          <!-- <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button> -->
+           <input class= "product-quantity" type="number" value="1" min="1">
+          <!-- <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button> -->
         </td>
         <td>{{ item.price | currency}}</td>
         <td><button (click)="removeCartItem(i)" class="btn btn-danger btn-sm">Remove</button></td>
       </tr>
     </tbody>
   </table>
+<!--   <form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
+    <label for="subTotal">
+      SubTotal
+    </label>
+    <input type="currency">
+
+    <label for="tax">
+      Tax
+    </label>
+    <input type="currency">
+    <label for="orderTotal">
+      OrderTotal
+    </label>
+    <input type="currency">
+  </form> -->
 </div>
+<br>
+
+<form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
+  <label for="subTotal">
+    SubTotal
+  </label>
+  <input type="currency">
+
+  <label for="tax">
+    Tax
+  </label>
+  <input type="currency">
+  <label for="orderTotal">
+    OrderTotal
+  </label>
+  <input type="currency">
+</form>
 
 
 <br>
@@ -44,6 +76,10 @@
   <br>
   <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
 </form>
+
+
+
+
 
 <!--   <div *ngFor="let item of items" class="cart-item">
     <span>{{ item.name }}</span>

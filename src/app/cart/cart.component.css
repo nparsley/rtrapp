@@ -46,3 +46,9 @@ input {
   color: rgb(243, 153, 35);
 }
 
+.product-quantity {
+  width: 17%;
+  /* justify-content: unset; */
+  /* justify-self: baseline; */
+
+}

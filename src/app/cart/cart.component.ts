@@ -19,6 +19,11 @@ export class CartComponent implements OnInit {
   });
   item;
   deleteItems;
+  checkoutTotal = this.formbuilder.group({
+    subTotal: '',
+    tax: '',
+    orderTotal: ''
+  });
 
 
   constructor(
@@ -42,6 +47,10 @@ export class CartComponent implements OnInit {
     console.log(item);
     this.items.splice(item, 1);
     console.log('item was removed');
+  }
+
+  onCheckout() {
+    this.checkoutTotal.reset();
   }
 
 
