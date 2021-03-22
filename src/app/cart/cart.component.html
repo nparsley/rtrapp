@@ -23,39 +23,46 @@
       </tr>
     </tbody>
   </table>
-<!--   <form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
+</div>
+<br>
+  <form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
     <label for="subTotal">
       SubTotal
+      <!-- {{ subtotal }} subTotal -->
+      <input
+      type="currency"
+      id="subtotal"
+      name="subtotal"
+      required
+      pattern="^[1-9]+[0-9]*$"
+    >
     </label>
-    <input type="currency">
 
     <label for="tax">
       Tax
+      <!-- {{ tax }} tax -->
+      <input
+      type="currency"
+      id="tax"
+      name="tax"
+      required
+      pattern="^[1-9]+[0-9]*$"
+    >
     </label>
-    <input type="currency">
+
     <label for="orderTotal">
       OrderTotal
+      <!-- {{ orderTotal }} orderTotal -->
+      <input
+      type="currency"
+      id="ordertotal"
+      name="ordertotal"
+      required
+      pattern="^[1-9]+[0-9]*$"
+    >
     </label>
-    <input type="currency">
-  </form> -->
-</div>
-<br>
 
-<form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
-  <label for="subTotal">
-    SubTotal
-  </label>
-  <input type="currency">
-
-  <label for="tax">
-    Tax
-  </label>
-  <input type="currency">
-  <label for="orderTotal">
-    OrderTotal
-  </label>
-  <input type="currency">
-</form>
+  </form>
 
 
 <br>

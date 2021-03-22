@@ -53,6 +53,20 @@ export class CartComponent implements OnInit {
     this.checkoutTotal.reset();
   }
 
+  emptyCart() {
+    // if ()
+  }
+
+  priceTotal() {
+    // bind price and total for each item * quantity displayed
+
+    // add cumulative row totals to subtotals
+
+    // multiply tax
+
+    // add for a total
+  }
+
 
   ngOnInit(): void {
 
