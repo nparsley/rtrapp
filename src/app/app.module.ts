@@ -18,6 +18,9 @@ import { CommonModule } from '@angular/common';
 import { FoodModule } from './food/food.module';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 
@@ -43,7 +46,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     CommonModule,
     FoodModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatCardModule
 
   ],
   providers: [],

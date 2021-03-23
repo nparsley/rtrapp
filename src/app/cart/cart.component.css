@@ -1,6 +1,11 @@
+.cart-align {
+  margin-left: 20px;
+}
+
 h3 {
   color: firebrick;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 20px;
 }
 
 .cart-item, .shipping-item {
@@ -29,8 +34,13 @@ input {
   padding: 16px 32px;
   margin-bottom: 8px;
   border-radius: 2px;
-
 }
+ .checkout-cart {
+  display: flex;
+  min-width: 250px;
+  max-width: 300px;
+ }
+
 
 .btn-outline {
   background-color: transparent;
@@ -49,3 +59,5 @@ input {
 .product-quantity {
   width: 17%;
 }
+
+

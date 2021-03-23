@@ -1,6 +1,6 @@
 <h3>Cart</h3>
 
-<div class="list-group-item" >
+<div class="list-group-item cart-align">
   <table class="table caption-top">
     <thead>
       <tr>
@@ -18,58 +18,36 @@
            <input class= "product-quantity" type="number" value="1" min="1">
           <!-- <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button> -->
         </td>
-        <td>{{ item.price | currency}}</td>
+        <td>{{ item.price | currency:'USD':'symbol':'1.2-2' }}</td>
         <td><button (click)="removeCartItem(i)" class="btn btn-danger btn-sm">Remove</button></td>
       </tr>
     </tbody>
   </table>
 </div>
 <br>
-<div class="container">
-  <form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
-    <label for="subTotal">
-      SubTotal
-      <!-- {{ subtotal }} subTotal -->
-      <input
-      type="currency"
-      id="subtotal"
-      name="subtotal"
-      required
-      pattern="^[1-9]+[0-9]*$"
-    >
-    </label>
 
-    <label for="tax">
-      Tax
-      <!-- {{ tax }} tax -->
-      <input
-      type="currency"
-      id="tax"
-      name="tax"
-      required
-      pattern="^[1-9]+[0-9]*$"
-    >
-    </label>
+ <!-- setup -->
 
-    <label for="orderTotal">
-      OrderTotal
-      <!-- {{ orderTotal }} orderTotal -->
-      <input
-      type="currency"
-      id="ordertotal"
-      name="ordertotal"
-      required
-      pattern="^[1-9]+[0-9]*$"
-    >
-    </label>
-
-  </form>
-</div>
-
+	<mat-card class="checkout-cart cart-align">
+		<mat-card-header>
+      <mat-card-title>Checkout</mat-card-title>
+      <br>
+			  <mat-card-subtitle>
+          SubTotal:
+          <!-- {{ state.subTotal | currency:'USD':'symbol':'1.2-2' }} -->
+          <br>
+          Tax:
+          <!-- {{ state.tax | currency:'USD':'symbol':'1.2-2' }} -->
+          <br>
+          Order Total:
+          <!-- {{ state.orderTotal | currency:'USD':'symbol':'1.2-2' }} -->
+        </mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
 
 
 <br>
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+<form class="cart-align" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">
       Name
@@ -83,6 +61,7 @@
     </label>
     <input minlength="10" maxlength="10" id="phone" type="text" formControlName="phone" required>
   </div>
+  <br>
   <br>
   <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
 </form>
