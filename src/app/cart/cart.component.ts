@@ -12,6 +12,9 @@ import { CartService } from '../food/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  @Input() state: any;
+
+
   items = this.cartservice.getItems();
   checkoutForm = this.formbuilder.group({
     name: '',

@@ -25,6 +25,7 @@
   </table>
 </div>
 <br>
+<div class="container">
   <form [formGroup]="checkoutTotal" (ngSubmit)="onCheckout()">
     <label for="subTotal">
       SubTotal
@@ -63,6 +64,8 @@
     </label>
 
   </form>
+</div>
+
 
 
 <br>
@@ -86,9 +89,3 @@
 
 
 
-
-
-<!--   <div *ngFor="let item of items" class="cart-item">
-    <span>{{ item.name }}</span>
-    <span>{{ item.price | currency }}</span>
-  </div> -->

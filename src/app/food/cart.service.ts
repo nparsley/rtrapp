@@ -8,6 +8,12 @@ interface MenuItem {
   price: number;
 }
 
+interface MenuTotalItems {
+  subTotal: number;
+  tax: number;
+  checkoutTotal: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,13 +37,6 @@ export class CartService {
   getItems() {
     return this.items;
   }
-
-  // remove all cart items (need to reference i = index for this.items[])
-/*   removeCartItem(item) {
-    console.log(item)
-    this.items.splice(item.indexOf(item), 1);
-    console.log('item was removed');
-  } */
 
   removeCartItem(item) {
     console.log(item);
