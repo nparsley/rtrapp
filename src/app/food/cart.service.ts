@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 
 interface MenuItem {
@@ -8,11 +9,19 @@ interface MenuItem {
   price: number;
 }
 
-interface MenuTotalItems {
+interface CartTotals {
   subTotal: number;
   tax: number;
   checkoutTotal: number;
 }
+
+interface StateCart {
+  store: MenuItem[];
+  cart: MenuItem[];
+  totals: CartTotals
+}
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +29,12 @@ interface MenuTotalItems {
 export class CartService {
   items: Array<MenuItem> = [];
   deleteItems: Array<MenuItem> = [];
+
+
+  // Observables
+  stateCart$ = new BehaviorSubject<StateCart>(null);
+  cartAdd$ = new Subject<MenuItem>();
+  cartRemove$ = new Subject<MenuItem>();
 
 
   addSideToCart(sides) {
