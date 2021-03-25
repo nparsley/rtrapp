@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, merge, Observable, Subject } from 'rxjs';
+import { startWith, scan, map, tap, switchMap } from 'rxjs/operators';
+import { FOOD_ITEMS } from '../food';
 
 
-interface MenuItem {
+export interface MenuItem {
   id: number;
   name: string;
   description: string;
   price: number;
+  remove?: boolean;
 }
 
-interface CartTotals {
+export interface CartTotals {
   subTotal: number;
   tax: number;
   checkoutTotal: number;
 }
 
-interface StateCart {
+export interface StateCart {
   store: MenuItem[];
   cart: MenuItem[];
   totals: CartTotals
@@ -35,6 +38,21 @@ export class CartService {
   stateCart$ = new BehaviorSubject<StateCart>(null);
   cartAdd$ = new Subject<MenuItem>();
   cartRemove$ = new Subject<MenuItem>();
+
+// Cart Observable
+  get cart$(): Observable<MenuItem[]> {
+    return merge(this.cartAdd$, this.cartRemove$).pipe(
+      startWith([]),
+      scan((acc: MenuItem[], item: MenuItem ) => {
+        if (item) {
+          if (item.remove) {
+            return [...acc.filter(i => i !== item)];
+          }
+          return [...acc, item];
+        }
+      }, [])
+    );
+  }
 
 
   addSideToCart(sides) {
