@@ -15,7 +15,7 @@ export interface MenuItem {
 export interface CartTotals {
   subTotal: number;
   tax: number;
-  checkoutTotal: number;
+  cartTotal: number;
 }
 
 export interface StateCart {
@@ -34,7 +34,7 @@ export class CartService {
   deleteItems: Array<MenuItem> = [];
 
 
-  // Observables
+// Observables
   stateCart$ = new BehaviorSubject<StateCart>(null);
   cartAdd$ = new Subject<MenuItem>();
   cartRemove$ = new Subject<MenuItem>();
@@ -43,16 +43,40 @@ export class CartService {
   get cart$(): Observable<MenuItem[]> {
     return merge(this.cartAdd$, this.cartRemove$).pipe(
       startWith([]),
-      scan((acc: MenuItem[], item: MenuItem ) => {
-        if (item) {
-          if (item.remove) {
-            return [...acc.filter(i => i !== item)];
+      // signature: scan(accumulator: function, seed: any): Observable
+      scan((acc: MenuItem[], item: MenuItem) => {
+          if (item) {
+            if (item.remove) {
+              return [...acc.filter(i => i !== item)];
+            }
+            return [...acc, item];
           }
-          return [...acc, item];
-        }
-      }, [])
+        }, [])
     );
   }
+
+// Cart Totals Sum
+  get total$(): Observable<CartTotals> {
+    return this.cart$.pipe(
+      map(items => {
+        let total = 0;
+        for (const i of items) {
+          total =+ i.price;
+        }
+        return total;
+      }),
+      map(cost => ({
+        subTotal: cost,
+        tax: .056 * cost,
+        cartTotal: .056 * cost + cost
+      })
+      )
+    );
+  }
+
+
+
+
 
 
   addSideToCart(sides) {
