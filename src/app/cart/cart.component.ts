@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { min } from 'rxjs/operators';
-import { CartService } from '../food/cart.service';
+import { CartService, MenuItem } from '../food/cart.service';
 
 
 
@@ -13,7 +13,8 @@ import { CartService } from '../food/cart.service';
 })
 export class CartComponent implements OnInit {
   @Input() state: any;
-
+  // cartState$ = this.cartservice.state$;
+  //
 
   items = this.cartservice.getItems();
   checkoutForm = this.formbuilder.group({
@@ -47,6 +48,16 @@ export class CartComponent implements OnInit {
     console.log('item was removed');
   }
 
+// rxjs
+  addItemToCart(name: MenuItem) {
+    this.cartservice.addCartMenuItem(name);
+  }
+
+  remove(name: MenuItem) {
+    this.cartservice.removeCartMenuItem(name);
+  }
+
+  //
 
   ngOnInit(): void {
 

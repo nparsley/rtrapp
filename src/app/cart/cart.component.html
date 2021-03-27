@@ -1,70 +1,77 @@
 <h3>Cart</h3>
 
-<div class="list-group-item cart-align">
-  <table class="table caption-top">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Amount</th>
-        <th>Price</th>
-        <th>Remove--once set</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items; let i = index;">
-        <td>{{ item.name }}</td>
-        <td>
-          <!-- <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button> -->
-           <input class= "product-quantity" type="number" value="1" min="1">
-          <!-- <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button> -->
-        </td>
-        <td>{{ item.price | currency:'USD':'symbol':'1.2-2' }}</td>
-        <td><button (click)="removeCartItem(i)" class="btn btn-danger btn-sm">Remove</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
+<!-- <ng-container *ngIf="cartState$ | async"> -->
 
- <!-- setup -->
-
-	<mat-card class="checkout-cart cart-align">
-		<mat-card-header>
-      <mat-card-title>Checkout</mat-card-title>
-      <br>
-			  <mat-card-subtitle>
-          SubTotal:
-          <!-- {{ state.subTotal | currency:'USD':'symbol':'1.2-2' }} -->
-          <br>
-          Tax:
-          <!-- {{ state.tax | currency:'USD':'symbol':'1.2-2' }} -->
-          <br>
-          Order Total:
-          <!-- {{ state.cartTotal | currency:'USD':'symbol':'1.2-2' }} -->
-        </mat-card-subtitle>
-      </mat-card-header>
-    </mat-card>
-
-
-<br>
-<form class="cart-align" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input pattern="[a-zA-Z ]*" minlength="2" id="name" type="text" formControlName="name" required>
-  </div>
-
-  <div>
-    <label for="phone">
-      Phone Number
-    </label>
-    <input minlength="10" maxlength="10" id="phone" type="text" formControlName="phone" required>
+  <div class="list-group-item cart-align">
+    <table class="table caption-top">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Amount</th>
+          <th>Price</th>
+          <th>Remove--once set</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i = index;">
+          <td>{{ item.name }}</td>
+          <td>
+            <!-- <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button> -->
+             <input class= "product-quantity" type="number" value="1" min="1">
+            <!-- <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button> -->
+          </td>
+          <td>{{ item.price | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td><button (click)="removeCartItem(i)" class="btn btn-danger btn-sm">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <br>
+
+   <!-- setup -->
+
+    <mat-card class="checkout-cart cart-align">
+      <mat-card-header>
+        <mat-card-title>Checkout</mat-card-title>
+        <br>
+          <mat-card-subtitle>
+            SubTotal:
+            <!-- {{ state.subTotal | currency:'USD':'symbol':'1.2-2' }} -->
+            <br>
+            Tax:
+            <!-- {{ state.tax | currency:'USD':'symbol':'1.2-2' }} -->
+            <br>
+            Order Total:
+            <!-- {{ state.cartTotal | currency:'USD':'symbol':'1.2-2' }} -->
+          </mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+
   <br>
-  <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
-</form>
+  <form class="cart-align" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">
+        Name
+      </label>
+      <input pattern="[a-zA-Z ]*" minlength="2" id="name" type="text" formControlName="name" required>
+    </div>
+
+    <div>
+      <label for="phone">
+        Phone Number
+      </label>
+      <input minlength="10" maxlength="10" id="phone" type="text" formControlName="phone" required>
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-success btn-md" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
+  </form>
+
+
+<!-- </ng-container> -->
+
+
 
 
 

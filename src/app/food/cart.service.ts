@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, merge, Observable, Subject } from 'rxjs';
-import { startWith, scan, map, tap, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, merge, Observable, of, Subject } from 'rxjs';
+import { startWith, scan, map, tap, switchMap, debounceTime, shareReplay } from 'rxjs/operators';
 import { FOOD_ITEMS } from '../food';
 
 
@@ -40,7 +40,7 @@ export class CartService {
   cartRemove$ = new Subject<MenuItem>();
 
 // Cart Observable
-  get cart$(): Observable<MenuItem[]> {
+  private get cart$(): Observable<MenuItem[]> {
     return merge(this.cartAdd$, this.cartRemove$).pipe(
       startWith([]),
       // signature: scan(accumulator: function, seed: any): Observable
@@ -56,7 +56,7 @@ export class CartService {
   }
 
 // Cart Totals Sum
-  get total$(): Observable<CartTotals> {
+  private get total$(): Observable<CartTotals> {
     return this.cart$.pipe(
       map(items => {
         let total = 0;
@@ -74,10 +74,33 @@ export class CartService {
     );
   }
 
+// State Cart setup
+
+  state$: Observable<StateCart> = this.stateCart$.pipe(
+    // signature: switchMap(project: function: Observable, resultSelector:
+    // function(outerValue, innerValue, outerIndex, innerIndex): any): Observable
+    switchMap(() => this.getItems().pipe(
+      ([this.cart$, this.total$]),
+      debounceTime(0),
+    )),
+    map(([store, cart, totals]: any) => ({ store, cart, totals }))
+  );
 
 
+  // edit rxjs ------------
+  getDataItems() {
+    return of (FOOD_ITEMS);
+  }
 
+  addCartMenuItem(item: MenuItem) {
+    this.cartAdd$.next({ ...item });
+  }
 
+  removeCartMenuItem(item: MenuItem) {
+    this.cartRemove$.next({ ...item, remove: true })
+  }
+
+  // ------------------
 
   addSideToCart(sides) {
     this.items.push(sides);
