@@ -48,16 +48,16 @@ export class CartComponent implements OnInit {
     console.log('item was removed');
   }
 
-// rxjs
-  addItemToCart(name: MenuItem) {
-    this.cartservice.addCartMenuItem(name);
+// rxjs ---------------------
+  addItemToCart(item: MenuItem) {
+    this.cartservice.addCartMenuItem(item);
   }
 
-  remove(name: MenuItem) {
-    this.cartservice.removeCartMenuItem(name);
+  remove(item: MenuItem) {
+    this.cartservice.removeCartMenuItem(item);
   }
 
-  //
+  // -------------------------
 
   ngOnInit(): void {
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, merge, Observable, of, Subject } from 'rxjs';
 import { startWith, scan, map, tap, switchMap, debounceTime, shareReplay } from 'rxjs/operators';
 import { FOOD_ITEMS } from '../food';
+import { v4 as uuid } from 'uuid';
 
 
 export interface MenuItem {
@@ -10,6 +11,7 @@ export interface MenuItem {
   description: string;
   price: number;
   remove?: boolean;
+  uuid?: any;
 }
 
 export interface CartTotals {
@@ -21,7 +23,7 @@ export interface CartTotals {
 export interface StateCart {
   store: MenuItem[];
   cart: MenuItem[];
-  totals: CartTotals
+  totals: CartTotals;
 }
 
 
@@ -35,9 +37,11 @@ export class CartService {
 
 
 // Observables
-  stateCart$ = new BehaviorSubject<StateCart>(null);
-  cartAdd$ = new Subject<MenuItem>();
-  cartRemove$ = new Subject<MenuItem>();
+  private stateCart$ = new BehaviorSubject<StateCart>(null);
+  private cartAdd$ = new Subject<MenuItem>();
+  private cartRemove$ = new Subject<MenuItem>();
+
+
 
 // Cart Observable
   private get cart$(): Observable<MenuItem[]> {
@@ -47,7 +51,7 @@ export class CartService {
       scan((acc: MenuItem[], item: MenuItem) => {
           if (item) {
             if (item.remove) {
-              return [...acc.filter(i => i !== item)];
+              return [...acc.filter(i => i.uuid !== item.uuid)];
             }
             return [...acc, item];
           }
@@ -76,14 +80,16 @@ export class CartService {
 
 // State Cart setup
 
-  state$: Observable<StateCart> = this.stateCart$.pipe(
     // signature: switchMap(project: function: Observable, resultSelector:
     // function(outerValue, innerValue, outerIndex, innerIndex): any): Observable
-    switchMap(() => this.getItems().pipe(
-      ([this.cart$, this.total$]),
-      debounceTime(0),
-    )),
-    map(([store, cart, totals]: any) => ({ store, cart, totals }))
+    state$: Observable<StateCart> = this.stateCart$.pipe(
+      switchMap(() => this.getItems().pipe(
+        ([this.cart$, this.total$]),
+      )),
+    map(([store, cart, totals]: any) => ({ store, cart, totals })),
+/*     tap(state => {
+        console.log(state);
+    }) */
   );
 
 
@@ -93,7 +99,7 @@ export class CartService {
   }
 
   addCartMenuItem(item: MenuItem) {
-    this.cartAdd$.next({ ...item });
+    this.cartAdd$.next({ ...item, uuid: uuid() });
   }
 
   removeCartMenuItem(item: MenuItem) {
