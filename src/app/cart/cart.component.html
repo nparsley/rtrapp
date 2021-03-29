@@ -1,6 +1,6 @@
 <h3>Cart</h3>
 
-<!-- <ng-container *ngIf="cartState$ | async"> -->
+<ng-container *ngIf="cartState$ | async">
 
   <div class="list-group-item cart-align">
     <table class="table caption-top">
@@ -16,9 +16,9 @@
         <tr *ngFor="let item of items; let i = index;">
           <td>{{ item.name }}</td>
           <td>
-            <!-- <button class="btn btn-warning btn-outline btn-sm material-icons material-icons">add</button> -->
+
              <input class= "product-quantity" type="number" value="1" min="1">
-            <!-- <button class="btn btn-warning btn-outline btn-sm material-icons">remove</button> -->
+
           </td>
           <td>{{ item.price | currency:'USD':'symbol':'1.2-2' }}</td>
           <td><button (click)="removeCartItem(i)" class="btn btn-danger btn-sm">Remove</button></td>
@@ -28,7 +28,7 @@
   </div>
   <br>
 
-   <!-- setup -->
+
 
     <mat-card class="checkout-cart cart-align">
       <mat-card-header>
@@ -36,13 +36,15 @@
         <br>
           <mat-card-subtitle>
             SubTotal:
-            <!-- {{ state.subTotal | currency:'USD':'symbol':'1.2-2' }} -->
+            <!-- {{ state.totals.subTotal }} -->
             <br>
             Tax:
-            <!-- {{ state.tax | currency:'USD':'symbol':'1.2-2' }} -->
+            <!-- {{ state.totals.tax }} -->
             <br>
             Order Total:
-            <!-- {{ state.cartTotal | currency:'USD':'symbol':'1.2-2' }} -->
+            <!-- {{ state.totals.cartTotal }} -->
+          </mat-card-subtitle>
+          <mat-card-subtitle>
           </mat-card-subtitle>
         </mat-card-header>
       </mat-card>
@@ -69,7 +71,7 @@
   </form>
 
 
-<!-- </ng-container> -->
+</ng-container>
 
 
 

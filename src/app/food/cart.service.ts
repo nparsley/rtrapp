@@ -82,6 +82,7 @@ export class CartService {
 
     // signature: switchMap(project: function: Observable, resultSelector:
     // function(outerValue, innerValue, outerIndex, innerIndex): any): Observable
+
     state$: Observable<StateCart> = this.stateCart$.pipe(
       switchMap(() => this.getItems().pipe(
         ([this.cart$, this.total$]),

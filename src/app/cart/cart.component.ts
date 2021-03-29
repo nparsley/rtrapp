@@ -13,8 +13,8 @@ import { CartService, MenuItem } from '../food/cart.service';
 })
 export class CartComponent implements OnInit {
   @Input() state: any;
-  // cartState$ = this.cartservice.state$;
-  //
+  cartState$ = this.cartservice.state$;
+  // ------------
 
   items = this.cartservice.getItems();
   checkoutForm = this.formbuilder.group({
